@@ -37,7 +37,10 @@ Y_pred = sigmoid(x_data, beta_1 , beta_2)
 #plot initial prediction against datapoints
 plt.plot(x_data, Y_pred*15000000000000.)
 plt.plot(x_data, y_data, 'ro')
-# Lets normalize our data to be able to fid the best parameters to fit the data with
+plt.show()
+
+
+# Lets normalize our data to be able to find the best parameters to fit the data with
 xdata =x_data/max(x_data)
 ydata =y_data/max(y_data)
 #use curve_fit to find the best line thast fits the data well
