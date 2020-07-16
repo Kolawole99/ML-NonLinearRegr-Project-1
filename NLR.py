@@ -58,6 +58,25 @@ plt.show()
 
 
 
+#=========================================EVALUATE ACCURACY=================================
+# split data into train/test
+msk = np.random.rand(len(df)) < 0.8
+train_x = xdata[msk]
+test_x = xdata[~msk]
+train_y = ydata[msk]
+test_y = ydata[~msk]
+
+# build the model using train set
+popt, pcov = curve_fit(sigmoid, train_x, train_y)
+
+# predict using test set
+y_hat = sigmoid(test_x, *popt)
+
+# evaluation
+print("Mean absolute error: %.2f" % np.mean(np.absolute(y_hat - test_y)))
+print("Residual sum of squares (MSE): %.2f" % np.mean((y_hat - test_y) ** 2))
+from sklearn.metrics import r2_score
+print("R2-score: %.2f" % r2_score(y_hat , test_y) )
 
 
 
