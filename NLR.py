@@ -12,6 +12,14 @@ print(df.head(10))
 
 
 
+#==================================PLOTTING THE DATASET==================================
+plt.figure(figsize=(8,5))
+x_data, y_data = (df["Year"].values, df["Value"].values)
+plt.plot(x_data, y_data, 'ro')
+plt.ylabel('GDP')
+plt.xlabel('Year')
+plt.show()
+
 
 
 #===============================TYPES OF NON LINEAR REGRESSION=================================
